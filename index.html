@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BoiSpace - App Center</title>
+  <!-- Nhúng file CSS ngoài -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>BoiSpace App Hub</h1>
+      <p>Tổng hợp các công cụ và ứng dụng trực tuyến</p>
+    </header>
+
+    <!-- Thanh tìm kiếm -->
+    <div class="toolbar">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Tìm kiếm ứng dụng..." onkeyup="filterApps()">
+      </div>
+    </div>
+
+    <!-- Danh sách 5 App -->
+    <div class="app-grid" id="appGrid">
+
+      <!-- App 1: Dọn Rác -->
+      <div class="app-card">
+        <div>
+          <div class="card-header">
+            <div class="app-icon"><i class="fa-solid fa-broom"></i></div>
+            <div class="app-info">
+              <h3>Dọn Rác Hệ Thống</h3>
+              <span class="app-tag">Tiện ích</span>
+            </div>
+          </div>
+          <p class="app-desc">Tối ưu hóa bộ nhớ, dọn dẹp tập tin rác và bộ nhớ đệm giúp máy chạy mượt mà.</p>
+        </div>
+        <div class="card-actions">
+          <a href="./app1/" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> Xem Web</a>
+          <a href="./app1/release.zip" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải về</a>
+        </div>
+      </div>
+
+      <!-- App 2: Quét Virus -->
+      <div class="app-card">
+        <div>
+          <div class="card-header">
+            <div class="app-icon icon-danger"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="app-info">
+              <h3>Quét Virus Online</h3>
+              <span class="app-tag">Bảo mật</span>
+            </div>
+          </div>
+          <p class="app-desc">Kiểm tra liên kết, tập tin nghi vấn và phát hiện mã độc nhanh chóng.</p>
+        </div>
+        <div class="card-actions">
+          <a href="./app2/" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> Xem Web</a>
+          <a href="./app2/release.zip" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải về</a>
+        </div>
+      </div>
+
+      <!-- App 3 -->
+      <div class="app-card">
+        <div>
+          <div class="card-header">
+            <div class="app-icon icon-success"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="app-info">
+              <h3>Quản Lý Tài Chính</h3>
+              <span class="app-tag">Công việc</span>
+            </div>
+          </div>
+          <p class="app-desc">Theo dõi thu chi cá nhân, lập kế hoạch ngân sách và xuất báo cáo trực quan.</p>
+        </div>
+        <div class="card-actions">
+          <a href="./app3/" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> Xem Web</a>
+          <a href="./app3/release.zip" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải về</a>
+        </div>
+      </div>
+
+      <!-- App 4 -->
+      <div class="app-card">
+        <div>
+          <div class="card-header">
+            <div class="app-icon icon-warning"><i class="fa-solid fa-image"></i></div>
+            <div class="app-info">
+              <h3>Nén Ảnh Trực Tuyến</h3>
+              <span class="app-tag">Media</span>
+            </div>
+          </div>
+          <p class="app-desc">Nén dung lượng ảnh PNG/JPG giữ nguyên chất lượng hiển thị sắc nét.</p>
+        </div>
+        <div class="card-actions">
+          <a href="./app4/" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> Xem Web</a>
+          <a href="./app4/release.zip" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải về</a>
+        </div>
+      </div>
+
+      <!-- App 5 -->
+      <div class="app-card">
+        <div>
+          <div class="card-header">
+            <div class="app-icon icon-purple"><i class="fa-solid fa-code"></i></div>
+            <div class="app-info">
+              <h3>Công Cụ Lập Trình</h3>
+              <span class="app-tag">Lập trình</span>
+            </div>
+          </div>
+          <p class="app-desc">Hỗ trợ format code, chuyển đổi dữ liệu JSON/XML tự động và chính xác.</p>
+        </div>
+        <div class="card-actions">
+          <a href="./app5/" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> Xem Web</a>
+          <a href="./app5/release.zip" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải về</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function filterApps() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.getElementsByClassName('app-card');
+
+      for (let i = 0; i < cards.length; i++) {
+        const title = cards[i].querySelector('h3').innerText.toLowerCase();
+        const desc = cards[i].querySelector('.app-desc').innerText.toLowerCase();
+        
+        if (title.includes(input) || desc.includes(input)) {
+          cards[i].style.display = "flex";
+        } else {
+          cards[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
