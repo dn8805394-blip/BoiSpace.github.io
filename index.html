@@ -1,144 +1,219 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BoiSpace - App Center</title>
-  <!-- Nhúng file CSS ngoài -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Google Font: Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trung Tâm Ứng Dụng</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome cho các icon (mùa hè, donate...) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <h1>BoiSpace App Hub</h1>
-      <p>Tổng hợp các công cụ và ứng dụng trực tuyến</p>
-    </header>
-
-    <!-- Thanh tìm kiếm -->
-    <div class="toolbar">
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="Tìm kiếm ứng dụng..." onkeyup="filterApps()">
-      </div>
+    <!-- 1. HIỆU ỨNG CỬA KÉO 2 BÊN (KHI VỪA VÀO WEB) -->
+    <div class="door-container" id="doorContainer">
+        <!-- Cánh cửa bên trái -->
+        <div class="door door-left">
+            <div class="door-content">
+                <h2>SYSTEM</h2>
+            </div>
+        </div>
+        <!-- Cánh cửa bên phải -->
+        <div class="door door-right">
+            <div class="door-content">
+                <h2>HUB</h2>
+            </div>
+        </div>
     </div>
 
-    <!-- Danh sách 5 App -->
-    <div class="app-grid" id="appGrid">
-
-      <!-- App 1: Dọn Rác -->
-      <div class="app-card">
-        <div>
-          <div class="card-header">
-            <div class="app-icon"><i class="fa-solid fa-broom"></i></div>
-            <div class="app-info">
-              <h3>Dọn Rác Hệ Thống</h3>
-              <span class="app-tag">Tiện ích</span>
-            </div>
-          </div>
-          <p class="app-desc">Tối ưu hóa bộ nhớ, dọn dẹp tập tin rác và bộ nhớ đệm giúp máy chạy mượt mà.</p>
-        </div>
-        <div class="card-actions">
-          <a href="./app1/" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> Xem Web</a>
-          <a href="./app1/release.zip" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải về</a>
-        </div>
-      </div>
-
-      <!-- App 2: Quét Virus -->
-      <div class="app-card">
-        <div>
-          <div class="card-header">
-            <div class="app-icon icon-danger"><i class="fa-solid fa-shield-halved"></i></div>
-            <div class="app-info">
-              <h3>Quét Virus Online</h3>
-              <span class="app-tag">Bảo mật</span>
-            </div>
-          </div>
-          <p class="app-desc">Kiểm tra liên kết, tập tin nghi vấn và phát hiện mã độc nhanh chóng.</p>
-        </div>
-        <div class="card-actions">
-          <a href="./app2/" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> Xem Web</a>
-          <a href="./app2/release.zip" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải về</a>
-        </div>
-      </div>
-
-      <!-- App 3 -->
-      <div class="app-card">
-        <div>
-          <div class="card-header">
-            <div class="app-icon icon-success"><i class="fa-solid fa-chart-line"></i></div>
-            <div class="app-info">
-              <h3>Quản Lý Tài Chính</h3>
-              <span class="app-tag">Công việc</span>
-            </div>
-          </div>
-          <p class="app-desc">Theo dõi thu chi cá nhân, lập kế hoạch ngân sách và xuất báo cáo trực quan.</p>
-        </div>
-        <div class="card-actions">
-          <a href="./app3/" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> Xem Web</a>
-          <a href="./app3/release.zip" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải về</a>
-        </div>
-      </div>
-
-      <!-- App 4 -->
-      <div class="app-card">
-        <div>
-          <div class="card-header">
-            <div class="app-icon icon-warning"><i class="fa-solid fa-image"></i></div>
-            <div class="app-info">
-              <h3>Nén Ảnh Trực Tuyến</h3>
-              <span class="app-tag">Media</span>
-            </div>
-          </div>
-          <p class="app-desc">Nén dung lượng ảnh PNG/JPG giữ nguyên chất lượng hiển thị sắc nét.</p>
-        </div>
-        <div class="card-actions">
-          <a href="./app4/" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> Xem Web</a>
-          <a href="./app4/release.zip" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải về</a>
-        </div>
-      </div>
-
-      <!-- App 5 -->
-      <div class="app-card">
-        <div>
-          <div class="card-header">
-            <div class="app-icon icon-purple"><i class="fa-solid fa-code"></i></div>
-            <div class="app-info">
-              <h3>Công Cụ Lập Trình</h3>
-              <span class="app-tag">Lập trình</span>
-            </div>
-          </div>
-          <p class="app-desc">Hỗ trợ format code, chuyển đổi dữ liệu JSON/XML tự động và chính xác.</p>
-        </div>
-        <div class="card-actions">
-          <a href="./app5/" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> Xem Web</a>
-          <a href="./app5/release.zip" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải về</a>
-        </div>
-      </div>
-
+    <!-- HIỆU ỨNG MÙA HÈ (Đom đóm / Ánh nắng bay nhè nhẹ) -->
+    <div class="summer-effects" id="summerEffects">
+        <!-- Các hạt nắng/đom đóm được tạo bằng CSS/JS -->
     </div>
-  </div>
 
-  <script>
-    function filterApps() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.getElementsByClassName('app-card');
+    <!-- 2. THANH NAVBAR TRÊN CÙNG -->
+    <nav class="top-navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>SYSTEM HUB</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <!-- Dropdown Store (Rê chuột là mở) -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Store <i class="fa-solid fa-chevron-down dropdown-icon"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#app1"><span class="dot-indicator dot-1"></span>App Dọn Rác</a>
+                        <a href="#app2"><span class="dot-indicator dot-2"></span>App Bảo Mật</a>
+                        <a href="#app3"><span class="dot-indicator dot-3"></span>App Tăng Tốc</a>
+                        <a href="#app4"><span class="dot-indicator dot-4"></span>App Phím Tắt</a>
+                        <a href="#app5"><span class="dot-indicator dot-5"></span>App Gỡ Cài Đặt</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fa-brands fa-windows"></i> Windows</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fa-brands fa-android"></i> APK</a></li>
+                <li class="nav-item"><a href="#" class="nav-link donate-btn"><i class="fa-solid fa-heart"></i> Donate</a></li>
+            </ul>
+        </div>
+    </nav>
 
-      for (let i = 0; i < cards.length; i++) {
-        const title = cards[i].querySelector('h3').innerText.toLowerCase();
-        const desc = cards[i].querySelector('.app-desc').innerText.toLowerCase();
-        
-        if (title.includes(input) || desc.includes(input)) {
-          cards[i].style.display = "flex";
-        } else {
-          cards[i].style.display = "none";
-        }
-      }
-    }
-  </script>
+    <!-- 3. POPUP THÔNG BÁO KIỂU COMMAND PALETTE (RAYCAST) -->
+    <div class="modal-overlay" id="popupModal">
+        <div class="command-box">
+            <div class="command-header">
+                <h2>⚡ Hệ Sinh Thái Ứng Dụng</h2>
+                <p>Khám phá kho ứng dụng tối ưu hệ thống chuẩn Raycast. Hãy chọn ứng dụng bên dưới hoặc trên thanh menu để trải nghiệm!</p>
+            </div>
+            <div class="command-footer">
+                <button class="btn-raycast" id="closePopupBtn">Khám phá ngay ↵</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. NỘI DUNG CHÍNH (TRANG CHỦ MẸ) -->
+    <main class="main-container">
+        <header class="main-header">
+            <div class="season-badge"><i class="fa-solid fa-sun"></i> Mùa Hè Rực Rỡ</div>
+            <h1>Trung Tâm Tải Ứng Dụng</h1>
+            <p class="subtitle">Bộ công cụ tối ưu hóa hệ thống toàn diện dành cho thiết bị của bạn.</p>
+        </header>
+
+        <div class="app-grid">
+            <!-- App 1 -->
+            <a href="#" class="app-card" id="app1">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="app-icon icon-1"><i class="fa-solid fa-broom"></i></div>
+                        <div>
+                            <h3>App Dọn Rác</h3>
+                            <p>Tối ưu không gian lưu trữ</p>
+                        </div>
+                    </div>
+                    <p class="app-desc">Quét sạch các tệp rác, bộ nhớ đệm, file tạm hệ thống để giải phóng dung lượng ổ đĩa nhanh chóng.</p>
+                </div>
+                <div class="card-action"><span>Xem & Tải</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+
+            <!-- App 2 -->
+            <a href="#" class="app-card" id="app2">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="app-icon icon-2"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <h3>App Bảo Mật</h3>
+                            <p>Bảo vệ thời gian thực</p>
+                        </div>
+                    </div>
+                    <p class="app-desc">Ngăn chặn phần mềm độc hại, quét virus chuyên sâu và bảo vệ các thư mục dữ liệu cá nhân an toàn.</p>
+                </div>
+                <div class="card-action"><span>Xem & Tải</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+
+            <!-- App 3 -->
+            <a href="#" class="app-card" id="app3">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="app-icon icon-3"><i class="fa-solid fa-gauge-high"></i></div>
+                        <div>
+                            <h3>App Tăng Tốc</h3>
+                            <p>Tối đa hiệu suất CPU & RAM</p>
+                        </div>
+                    </div>
+                    <p class="app-desc">Phân bổ tài nguyên phần cứng thông minh, giảm giật lag và mang lại trải nghiệm mượt mà nhất khi chơi game.</p>
+                </div>
+                <div class="card-action"><span>Xem & Tải</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+
+            <!-- App 4 -->
+            <a href="#" class="app-card" id="app4">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="app-icon icon-4"><i class="fa-solid fa-keyboard"></i></div>
+                        <div>
+                            <h3>App Phím Tắt</h3>
+                            <p>Tự động hóa tác vụ</p>
+                        </div>
+                    </div>
+                    <p class="app-desc">Thiết lập macro mạnh mẽ, gán phím tắt tùy chỉnh để tự động hóa các thao tác lặp đi lặp lại hàng ngày.</p>
+                </div>
+                <div class="card-action"><span>Xem & Tải</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+
+            <!-- App 5 -->
+            <a href="#" class="app-card" id="app5">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="app-icon icon-5"><i class="fa-solid fa-trash-can-arrow-up"></i></div>
+                        <div>
+                            <h3>App Gỡ Cài Đặt</h3>
+                            <p>Gỡ bỏ phần mềm tận gốc</p>
+                        </div>
+                    </div>
+                    <p class="app-desc">Loại bỏ hoàn toàn các ứng dụng "cứng đầu", dọn dẹp sạch sẽ Registry và tệp dư thừa không để lại dấu vết.</p>
+                </div>
+                <div class="card-action"><span>Xem & Tải</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+        </div>
+    </main>
+
+    <!-- SCRIPT ĐIỀU KHIỂN -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Logic hiệu ứng Cửa kéo (Doors)
+            const doorContainer = document.getElementById('doorContainer');
+            const popupModal = document.getElementById('popupModal');
+
+            // Thời gian trễ để mô phỏng "đang load" rồi mới kéo cửa (có thể chỉnh thời gian)
+            setTimeout(() => {
+                doorContainer.classList.add('open');
+                
+                // Sau khi cửa kéo xong, ẩn nó đi khỏi DOM để không đè lên web
+                setTimeout(() => {
+                    doorContainer.style.display = 'none';
+                    // Mở bảng thông báo Popup lên
+                    popupModal.style.display = 'flex';
+                }, 1000); // 1000ms tương ứng thời gian animation của cửa
+
+            }, 800);
+
+            // 2. Logic đóng Popup
+            const closePopupBtn = document.getElementById('closePopupBtn');
+            closePopupBtn.addEventListener('click', () => {
+                popupModal.style.opacity = '0';
+                popupModal.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    popupModal.style.display = 'none';
+                }, 200);
+            });
+
+            // 3. Logic tạo hạt (Mùa hè - Đom đóm/Nắng)
+            const summerEffects = document.getElementById('summerEffects');
+            function createParticles() {
+                const particleCount = 20; // Số lượng hạt
+                for (let i = 0; i < particleCount; i++) {
+                    let particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random vị trí, kích thước, thời gian animation
+                    let size = Math.random() * 8 + 2; // từ 2px đến 10px
+                    let posX = Math.random() * 100; // 0% - 100%
+                    let posY = Math.random() * 100;
+                    let duration = Math.random() * 10 + 5; // 5s - 15s
+                    let delay = Math.random() * 5;
+
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${posX}vw`;
+                    particle.style.top = `${posY}vh`;
+                    particle.style.animationDuration = `${duration}s`;
+                    particle.style.animationDelay = `${delay}s`;
+
+                    summerEffects.appendChild(particle);
+                }
+            }
+            createParticles();
+        });
+    </script>
 </body>
 </html>
