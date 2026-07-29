@@ -3,217 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trung Tâm Ứng Dụng</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome cho các icon (mùa hè, donate...) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>BOI Space Station - Invisible Public</title>
+    <!-- Font Inter (Giống font của Raycast) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Icon SVG (dùng tạm Boxicons cho nhẹ và đẹp) -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
-    <!-- 1. HIỆU ỨNG CỬA KÉO 2 BÊN (KHI VỪA VÀO WEB) -->
-    <div class="door-container" id="doorContainer">
-        <!-- Cánh cửa bên trái -->
-        <div class="door door-left">
-            <div class="door-content">
-                <h2>SYSTEM</h2>
-            </div>
-        </div>
-        <!-- Cánh cửa bên phải -->
-        <div class="door door-right">
-            <div class="door-content">
-                <h2>HUB</h2>
-            </div>
-        </div>
+    <!-- LỚP NỀN CHUYỂN ĐỘNG (Glass Liquid Background) -->
+    <div class="glass-liquid-bg">
+        <div class="liquid-shape shape-1"></div>
+        <div class="liquid-shape shape-2"></div>
+        <div class="liquid-shape shape-3"></div>
     </div>
 
-    <!-- HIỆU ỨNG MÙA HÈ (Đom đóm / Ánh nắng bay nhè nhẹ) -->
-    <div class="summer-effects" id="summerEffects">
-        <!-- Các hạt nắng/đom đóm được tạo bằng CSS/JS -->
-    </div>
-
-    <!-- 2. THANH NAVBAR TRÊN CÙNG -->
-    <nav class="top-navbar">
+    <!-- THANH ĐIỀU HƯỚNG (Raycast Style Navbar) -->
+    <header class="navbar">
         <div class="nav-container">
-            <a href="#" class="brand-logo">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>SYSTEM HUB</span>
-            </a>
-            
-            <ul class="nav-menu">
-                <!-- Dropdown Store (Rê chuột là mở) -->
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link">Store <i class="fa-solid fa-chevron-down dropdown-icon"></i></a>
-                    <div class="dropdown-content">
-                        <a href="#app1"><span class="dot-indicator dot-1"></span>App Dọn Rác</a>
-                        <a href="#app2"><span class="dot-indicator dot-2"></span>App Bảo Mật</a>
-                        <a href="#app3"><span class="dot-indicator dot-3"></span>App Tăng Tốc</a>
-                        <a href="#app4"><span class="dot-indicator dot-4"></span>App Phím Tắt</a>
-                        <a href="#app5"><span class="dot-indicator dot-5"></span>App Gỡ Cài Đặt</a>
-                    </div>
-                </li>
-                <li class="nav-item"><a href="#" class="nav-link"><i class="fa-brands fa-windows"></i> Windows</a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><i class="fa-brands fa-android"></i> APK</a></li>
-                <li class="nav-item"><a href="#" class="nav-link donate-btn"><i class="fa-solid fa-heart"></i> Donate</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- 3. POPUP THÔNG BÁO KIỂU COMMAND PALETTE (RAYCAST) -->
-    <div class="modal-overlay" id="popupModal">
-        <div class="command-box">
-            <div class="command-header">
-                <h2>⚡ Hệ Sinh Thái Ứng Dụng</h2>
-                <p>Khám phá kho ứng dụng tối ưu hệ thống chuẩn Raycast. Hãy chọn ứng dụng bên dưới hoặc trên thanh menu để trải nghiệm!</p>
+            <!-- Bên Trái: Logo & Tên -->
+            <div class="nav-left">
+                <div class="logo-icon">BO!</div>
+                <span class="brand-name">BOI Space Station</span>
             </div>
-            <div class="command-footer">
-                <button class="btn-raycast" id="closePopupBtn">Khám phá ngay ↵</button>
+
+            <!-- Bên Phải: Menu & Mục Store có hiệu ứng Hover -->
+            <nav class="nav-right">
+                <!-- Vùng Store Hover -->
+                <div class="nav-item store-trigger">
+                    <span class="store-text">Store <i class='bx bx-chevron-down'></i></span>
+                    
+                    <!-- Bảng Dropdown hiện ra khi lia chuột -->
+                    <div class="store-dropdown glass-panel">
+                        <div class="app-hover-item">
+                            <div class="app-logo-mini">BO!</div>
+                            <div class="app-info-mini">
+                                <h4>BO! Remind</h4>
+                                <p>Expiry & Maintenance</p>
+                            </div>
+                            <div class="app-badges">
+                                <!-- Icon Android -->
+                                <i class='bx bxl-android android-icon' title="Android Only"></i>
+                                <!-- Nút Donate -->
+                                <a href="#donate" class="donate-btn">
+                                    <i class='bx bx-coffee'></i> Donate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- NỘI DUNG CHÍNH (Main Content) -->
+    <main>
+        <!-- MÀN GIỚI THIỆU ÀO ẠT (Hero Section) -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to the<br><span class="highlight">Invisible Public</span></h1>
+                <p class="hero-subtitle">Trạm không gian lưu trữ những giải pháp tàng hình. Tối giản, thầm lặng và mạnh mẽ.</p>
+                
+                <!-- Nút cuộn xuống -->
+                <div class="scroll-indicator">
+                    <span>Khám phá kho ứng dụng</span>
+                    <i class='bx bx-mouse'></i>
+                    <i class='bx bx-chevron-down animate-bounce'></i>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- 4. NỘI DUNG CHÍNH (TRANG CHỦ MẸ) -->
-    <main class="main-container">
-        <header class="main-header">
-            <div class="season-badge"><i class="fa-solid fa-sun"></i> Mùa Hè Rực Rỡ</div>
-            <h1>Trung Tâm Tải Ứng Dụng</h1>
-            <p class="subtitle">Bộ công cụ tối ưu hóa hệ thống toàn diện dành cho thiết bị của bạn.</p>
-        </header>
-
-        <div class="app-grid">
-            <!-- App 1 -->
-            <a href="#" class="app-card" id="app1">
-                <div class="card-content">
-                    <div class="card-header">
-                        <div class="app-icon icon-1"><i class="fa-solid fa-broom"></i></div>
-                        <div>
-                            <h3>App Dọn Rác</h3>
-                            <p>Tối ưu không gian lưu trữ</p>
+        <!-- KHO ỨNG DỤNG HIỆN RA KHI CUỘN XUỐNG (Animated App Store Section) -->
+        <section class="store-section fade-in-on-scroll">
+            <div class="store-container glass-panel">
+                <div class="store-header">
+                    <h2>Kho Ứng Dụng / Terminal</h2>
+                    <div class="window-controls">
+                        <span class="dot close"></span>
+                        <span class="dot minimize"></span>
+                        <span class="dot maximize"></span>
+                    </div>
+                </div>
+                
+                <!-- Hiển thị App BO! Remind -->
+                <div class="app-showcase-card">
+                    <div class="app-icon-large">BO!</div>
+                    <div class="app-details">
+                        <h3>BO! Remind</h3>
+                        <p class="app-tagline">Never miss an expiration date.</p>
+                        <ul class="app-features">
+                            <li><i class='bx bx-check'></i> Quản lý hạn dùng sản phẩm</li>
+                            <li><i class='bx bx-check'></i> Nhắc lịch bảo trì xe cộ & máy móc</li>
+                            <li><i class='bx bx-check'></i> Tàng hình, siêu nhẹ, không quảng cáo</li>
+                        </ul>
+                        <div class="action-buttons">
+                            <button class="btn-primary"><i class='bx bx-download'></i> Tải APK (v1.0)</button>
+                            <button class="btn-secondary">Changelog</button>
                         </div>
                     </div>
-                    <p class="app-desc">Quét sạch các tệp rác, bộ nhớ đệm, file tạm hệ thống để giải phóng dung lượng ổ đĩa nhanh chóng.</p>
                 </div>
-                <div class="card-action"><span>Xem & Tải</span> <i class="fa-solid fa-arrow-right"></i></div>
-            </a>
-
-            <!-- App 2 -->
-            <a href="#" class="app-card" id="app2">
-                <div class="card-content">
-                    <div class="card-header">
-                        <div class="app-icon icon-2"><i class="fa-solid fa-shield-halved"></i></div>
-                        <div>
-                            <h3>App Bảo Mật</h3>
-                            <p>Bảo vệ thời gian thực</p>
-                        </div>
-                    </div>
-                    <p class="app-desc">Ngăn chặn phần mềm độc hại, quét virus chuyên sâu và bảo vệ các thư mục dữ liệu cá nhân an toàn.</p>
-                </div>
-                <div class="card-action"><span>Xem & Tải</span> <i class="fa-solid fa-arrow-right"></i></div>
-            </a>
-
-            <!-- App 3 -->
-            <a href="#" class="app-card" id="app3">
-                <div class="card-content">
-                    <div class="card-header">
-                        <div class="app-icon icon-3"><i class="fa-solid fa-gauge-high"></i></div>
-                        <div>
-                            <h3>App Tăng Tốc</h3>
-                            <p>Tối đa hiệu suất CPU & RAM</p>
-                        </div>
-                    </div>
-                    <p class="app-desc">Phân bổ tài nguyên phần cứng thông minh, giảm giật lag và mang lại trải nghiệm mượt mà nhất khi chơi game.</p>
-                </div>
-                <div class="card-action"><span>Xem & Tải</span> <i class="fa-solid fa-arrow-right"></i></div>
-            </a>
-
-            <!-- App 4 -->
-            <a href="#" class="app-card" id="app4">
-                <div class="card-content">
-                    <div class="card-header">
-                        <div class="app-icon icon-4"><i class="fa-solid fa-keyboard"></i></div>
-                        <div>
-                            <h3>App Phím Tắt</h3>
-                            <p>Tự động hóa tác vụ</p>
-                        </div>
-                    </div>
-                    <p class="app-desc">Thiết lập macro mạnh mẽ, gán phím tắt tùy chỉnh để tự động hóa các thao tác lặp đi lặp lại hàng ngày.</p>
-                </div>
-                <div class="card-action"><span>Xem & Tải</span> <i class="fa-solid fa-arrow-right"></i></div>
-            </a>
-
-            <!-- App 5 -->
-            <a href="#" class="app-card" id="app5">
-                <div class="card-content">
-                    <div class="card-header">
-                        <div class="app-icon icon-5"><i class="fa-solid fa-trash-can-arrow-up"></i></div>
-                        <div>
-                            <h3>App Gỡ Cài Đặt</h3>
-                            <p>Gỡ bỏ phần mềm tận gốc</p>
-                        </div>
-                    </div>
-                    <p class="app-desc">Loại bỏ hoàn toàn các ứng dụng "cứng đầu", dọn dẹp sạch sẽ Registry và tệp dư thừa không để lại dấu vết.</p>
-                </div>
-                <div class="card-action"><span>Xem & Tải</span> <i class="fa-solid fa-arrow-right"></i></div>
-            </a>
-        </div>
+            </div>
+        </section>
     </main>
 
-    <!-- SCRIPT ĐIỀU KHIỂN -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Logic hiệu ứng Cửa kéo (Doors)
-            const doorContainer = document.getElementById('doorContainer');
-            const popupModal = document.getElementById('popupModal');
+    <!-- CHÂN TRANG -->
+    <footer>
+        <p>© 2026 BOI. Built for Android.</p>
+    </footer>
 
-            // Thời gian trễ để mô phỏng "đang load" rồi mới kéo cửa (có thể chỉnh thời gian)
-            setTimeout(() => {
-                doorContainer.classList.add('open');
-                
-                // Sau khi cửa kéo xong, ẩn nó đi khỏi DOM để không đè lên web
-                setTimeout(() => {
-                    doorContainer.style.display = 'none';
-                    // Mở bảng thông báo Popup lên
-                    popupModal.style.display = 'flex';
-                }, 1000); // 1000ms tương ứng thời gian animation của cửa
-
-            }, 800);
-
-            // 2. Logic đóng Popup
-            const closePopupBtn = document.getElementById('closePopupBtn');
-            closePopupBtn.addEventListener('click', () => {
-                popupModal.style.opacity = '0';
-                popupModal.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    popupModal.style.display = 'none';
-                }, 200);
-            });
-
-            // 3. Logic tạo hạt (Mùa hè - Đom đóm/Nắng)
-            const summerEffects = document.getElementById('summerEffects');
-            function createParticles() {
-                const particleCount = 20; // Số lượng hạt
-                for (let i = 0; i < particleCount; i++) {
-                    let particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    
-                    // Random vị trí, kích thước, thời gian animation
-                    let size = Math.random() * 8 + 2; // từ 2px đến 10px
-                    let posX = Math.random() * 100; // 0% - 100%
-                    let posY = Math.random() * 100;
-                    let duration = Math.random() * 10 + 5; // 5s - 15s
-                    let delay = Math.random() * 5;
-
-                    particle.style.width = `${size}px`;
-                    particle.style.height = `${size}px`;
-                    particle.style.left = `${posX}vw`;
-                    particle.style.top = `${posY}vh`;
-                    particle.style.animationDuration = `${duration}s`;
-                    particle.style.animationDelay = `${delay}s`;
-
-                    summerEffects.appendChild(particle);
-                }
-            }
-            createParticles();
-        });
-    </script>
 </body>
 </html>
