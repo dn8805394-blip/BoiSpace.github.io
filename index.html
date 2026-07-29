@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOI Space Station - Invisible Public</title>
+    
+    <!-- LIÊN KẾT FILE CSS (Rất quan trọng cho GitHub Pages) -->
+    <!-- Đảm bảo file CSS của bạn được đặt tên chính xác là style.css và nằm cùng thư mục với index.html -->
+    <link rel="stylesheet" href="style.css">
+
     <!-- Font Inter (Giống font của Raycast) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- Icon SVG (dùng tạm Boxicons cho nhẹ và đẹp) -->
+    <!-- Icon SVG (dùng Boxicons) -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -110,19 +115,21 @@
     <footer>
         <p>© 2026 BOI. Built for Android.</p>
     </footer>
-    <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.2 }); // Hiện ra khi cuộn tới 20% khối
 
-    document.querySelectorAll('.fade-in-on-scroll').forEach((el) => {
-        observer.observe(el);
-    });
-</script>
+    <!-- SCRIPT HIỆU ỨNG CUỘN TRANG (Nằm ngay trước thẻ đóng body) -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.fade-in-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
 
 </body>
 </html>
